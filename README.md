@@ -4,6 +4,10 @@ An interactive portfolio template where a swarm of 18 simulated collaborative AI
 
 Zero build steps. Zero npm dependencies. Edit standard HTML and ship.
 
+![Agent Swarm Rebuild Preview](media/demo.gif)
+
+🎬 **[Watch Full Video Preview (MP4)](media/demo.mp4)** · **[Recorded WebM Tour](media/preview.webm)** · **[Live Production Site](https://allanindrajith.github.io/agent-swarm/)**
+
 ---
 
 ## ⚡ Quick Start (30 Seconds)
@@ -11,8 +15,8 @@ Zero build steps. Zero npm dependencies. Edit standard HTML and ship.
 Clone the repo and run any local static HTTP server:
 
 ```bash
-git clone https://github.com/<your-username>/<your-repo-name>.git
-cd <your-repo-name>
+git clone https://github.com/allanindrajith/agent-swarm.git
+cd agent-swarm
 
 # Start local server (choose any):
 python3 -m http.server 8080
@@ -73,5 +77,5 @@ Want to trigger this animation on your existing live website or app?
 
 ## 📜 Credits
 
-- Inspired by **[Swarm](https://califa.github.io/swarm-site/)** by **Joel Califa** (`@califa`).
+- Inspired by **[Swarm](https://califa.github.io/swarm-site/)** by **Joel Califa** (`@califa`, source: [github.com/califa/swarm-site](https://github.com/califa/swarm-site)).
 - Rebuilder engine adapted from **[Swarm Cursors](https://github.com/DhvanilPatel/swarm-cursors)** by **Dhvanil Patel**.
