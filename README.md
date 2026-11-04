@@ -6,7 +6,7 @@ Zero build steps. Zero npm dependencies. Edit standard HTML and ship.
 
 ![Agent Swarm Rebuild Preview](media/demo.gif)
 
-🎬 **[Watch Full Video Preview (MP4)](media/demo.mp4)** · **[Recorded WebM Tour](media/preview.webm)** · **[Live Production Site](https://allanindrajith.github.io/agent-swarm/)**
+🎬 **[Watch Live WebM Video Tour](media/tour-preview.webm)** · **[Live Production Site](https://allanindrajith.github.io/agent-swarm/)**
 
 ---
 
