@@ -1,16 +1,612 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Swarm: orchestrate thousands of agents</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="./assets/index-BcWSe1v5.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-DaDOAYTB.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Allan Indrajith — Full-Stack Developer & AI Systems Architect</title>
+  <meta name="description" content="Allan Indrajith — Full-stack developer and AI systems architect in Vilnius, Lithuania. Web platforms, custom AI workflows, and digital products." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================ */
+    /* STRICT BLACK & WHITE MONOCHROME TYPOGRAPHIC SYSTEM           */
+    /* ============================================================ */
+    :root {
+      --bg: #000000;
+      --card-bg: #0c0c0e;
+      --border: #222226;
+      --border-light: #333338;
+      --text: #ffffff;
+      --muted: #8e8e93;
+      --muted-dark: #444448;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      padding: 0 24px 100px;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    /* Top Navigation */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .brand {
+      font-weight: 900;
+      font-size: 19px;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      text-transform: uppercase;
+    }
+    .location-tag {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: #111114;
+      color: #a1a1aa;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+    }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      margin-left: 28px;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: #ffffff; }
+
+    /* Typographic Hero */
+    .hero {
+      padding: 90px 0 70px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-kicker {
+      display: inline-block;
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #ffffff;
+      background: #141417;
+      padding: 5px 12px;
+      border-radius: 4px;
+      border: 1px solid var(--border-light);
+      margin-bottom: 22px;
+    }
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 68px);
+      font-weight: 900;
+      line-height: 1.06;
+      letter-spacing: -0.04em;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+    }
+    .hero p.lead {
+      font-size: 19px;
+      color: var(--muted);
+      max-width: 720px;
+      margin-bottom: 36px;
+      line-height: 1.65;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .btn {
+      display: inline-block;
+      font-size: 13.5px;
+      font-weight: 700;
+      padding: 13px 26px;
+      border-radius: 6px;
+      text-decoration: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all 0.2s;
+    }
+    .btn-solid {
+      background: #ffffff;
+      color: #000000;
+      border: 1px solid #ffffff;
+    }
+    .btn-solid:hover {
+      background: #e4e4e7;
+    }
+    .btn-outline {
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid var(--border-light);
+    }
+    .btn-outline:hover {
+      background: #18181b;
+      border-color: #ffffff;
+    }
+
+    /* Performance Metrics Ribbon */
+    .stats-ribbon {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      padding: 40px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .stat-item {
+      padding: 16px;
+      border-left: 2px solid var(--border-light);
+    }
+    .stat-num {
+      font-size: 38px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+    }
+    .stat-desc {
+      font-size: 12.5px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    /* Section Headings */
+    .section-head {
+      padding-top: 70px;
+      margin-bottom: 32px;
+    }
+    .section-head h2 {
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+    .section-head p {
+      font-size: 15px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    /* Who I Am & What I Am Doing */
+    .about-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 40px;
+      margin-bottom: 70px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .about-col h3 {
+      font-size: 19px;
+      font-weight: 800;
+      margin-bottom: 14px;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+    .about-col p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* Customer Plans & Offerings Grid */
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 70px;
+    }
+    .plan-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .plan-card.featured {
+      border-color: #55555f;
+      background: #111114;
+    }
+    .plan-tag {
+      font-size: 11px;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .plan-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+    .plan-scope {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 24px;
+      min-height: 44px;
+      line-height: 1.55;
+    }
+    .plan-features {
+      list-style: none;
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+      margin-bottom: 28px;
+      display: grid;
+      gap: 12px;
+    }
+    .plan-features li {
+      font-size: 13.5px;
+      color: #d4d4d8;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .plan-features li::before {
+      content: "—";
+      color: var(--muted-dark);
+      font-weight: 800;
+    }
+    .plan-btn {
+      width: 100%;
+      text-align: center;
+      padding: 12px;
+      font-size: 12.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border-radius: 6px;
+      text-decoration: none;
+      display: block;
+    }
+
+    /* Typographic Work Cards (Text-only case studies) */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 20px;
+      margin-bottom: 70px;
+    }
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .project-card:hover {
+      border-color: var(--border-light);
+    }
+    .project-cat {
+      font-size: 11px;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .project-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+    .project-desc {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 22px;
+      line-height: 1.6;
+    }
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tech-tag {
+      font-size: 11px;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 3px 8px;
+      background: #18181b;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: #a1a1aa;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .footer-links a {
+      color: #ffffff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 600;
+    }
+
+    @media (max-width: 820px) {
+      .about-box { grid-template-columns: 1fr; gap: 24px; padding: 24px; }
+      nav a { margin-left: 16px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <!-- Top Header -->
+    <header>
+      <div class="brand-group">
+        <div class="brand">Allan Indrajith</div>
+        <span class="location-tag">Vilnius · Remote Worldwide</span>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#plans">Client Plans</a>
+        <a href="#work">Case Studies</a>
+        <a href="mailto:hello@itsallan.me">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Typographic Hero -->
+    <section class="hero">
+      <span class="hero-kicker">Architect · Builder · Strategist</span>
+      <h1>Built to inspire.<br>Engineered to perform.</h1>
+      <p class="lead">I engineer scalable full-stack web platforms, deterministic software architectures, and autonomous AI prompt workflows for companies worldwide.</p>
+      <div class="hero-actions">
+        <a href="#plans" class="btn btn-solid">View Client Plans</a>
+        <a href="mailto:hello@itsallan.me" class="btn btn-outline">Start a Project</a>
+      </div>
+    </section>
+
+    <!-- Metrics Ribbon -->
+    <div class="stats-ribbon">
+      <div class="stat-item">
+        <div class="stat-num">5+</div>
+        <div class="stat-desc">Client Platforms Shipped</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">&lt;100ms</div>
+        <div class="stat-desc">Median Frontend Latency</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-desc">Direct Technical Ownership</div>
+      </div>
+    </div>
+
+    <!-- Who I Am & What I Am Doing -->
+    <div class="section-head" id="about">
+      <h2>Who I Am & What I Am Doing</h2>
+      <p>Precision software engineering paired with commercial strategy.</p>
+    </div>
+    <div class="about-box">
+      <div class="about-col">
+        <h3>Who I Am</h3>
+        <p>I am Allan Indrajith, a full-stack engineer and AI workflow architect based in Vilnius, Lithuania. I specialize in bridging high-level creative brand strategy with rigorous, high-concurrency software engineering. No layers of account managers—just direct execution from blueprint to production.</p>
+      </div>
+      <div class="about-col">
+        <h3>What I Am Doing</h3>
+        <p>I build custom software platforms and autonomous agent workflows that replace fragile manual tasks with determinism. From conversational diagnostics and custom LLM prompt architectures to sub-second Next.js web applications, every product is built for scale, security, and measurable business ROI.</p>
+      </div>
+    </div>
+
+    <!-- What Plans I Have For Customers -->
+    <div class="section-head" id="plans">
+      <h2>Client Engagement Plans</h2>
+      <p>Transparent collaboration structures tailored to project scale and growth stage.</p>
+    </div>
+    <div class="plans-grid">
+      <!-- Plan 1 -->
+      <div class="plan-card">
+        <div>
+          <div class="plan-tag">PLAN 01 // 2-WEEK SPRINT</div>
+          <h3 class="plan-title">Fast-Track MVP</h3>
+          <p class="plan-scope">For founders and startups validating new concepts and needing a market-ready production release fast.</p>
+          <ul class="plan-features">
+            <li>Production web/mobile app build</li>
+            <li>Custom responsive design system</li>
+            <li>SEO, Core Web Vitals & analytics</li>
+            <li>Hosting setup & DNS configuration</li>
+            <li>14-day post-launch warranty</li>
+          </ul>
+        </div>
+        <a href="mailto:hello@itsallan.me?subject=Inquiry:%20Fast-Track%20MVP" class="plan-btn btn-outline">Select Sprint Plan</a>
+      </div>
+
+      <!-- Plan 2 (Featured) -->
+      <div class="plan-card featured">
+        <div>
+          <div class="plan-tag">PLAN 02 // ONGOING RETAINER</div>
+          <h3 class="plan-title">Dedicated Engineering</h3>
+          <p class="plan-scope">For growing ventures requiring continuous feature velocity, technical leadership, and code refactoring.</p>
+          <ul class="plan-features">
+            <li>Full-stack feature development</li>
+            <li>Direct Slack / Async communication</li>
+            <li>Architecture & code refactoring</li>
+            <li>AI workflow & tool integrations</li>
+            <li>Weekly release cycles & reviews</li>
+          </ul>
+        </div>
+        <a href="mailto:hello@itsallan.me?subject=Inquiry:%20Dedicated%20Retainer" class="plan-btn btn-solid">Select Retainer Plan</a>
+      </div>
+
+      <!-- Plan 3 -->
+      <div class="plan-card">
+        <div>
+          <div class="plan-tag">PLAN 03 // ENTERPRISE CUSTOM</div>
+          <h3 class="plan-title">Custom AI Systems</h3>
+          <p class="plan-scope">For organizations deploying proprietary prompt architectures, diagnostic engines, and agent pipelines.</p>
+          <ul class="plan-features">
+            <li>Autonomous agent orchestrations</li>
+            <li>Custom LLM prompt fine-tuning</li>
+            <li>Isolated sandbox verification</li>
+            <li>Enterprise cloud infrastructure</li>
+            <li>Priority 24/7 technical turnaround</li>
+          </ul>
+        </div>
+        <a href="mailto:hello@itsallan.me?subject=Inquiry:%20Enterprise%20AI" class="plan-btn btn-outline">Inquire Enterprise</a>
+      </div>
+    </div>
+
+    <!-- Featured Client Work (Text-only Case Studies) -->
+    <div class="section-head" id="work">
+      <h2>Featured Case Studies</h2>
+      <p>Selected production architectures engineered for real users.</p>
+    </div>
+    <div class="projects-grid">
+      <!-- Case 1 -->
+      <div class="project-card">
+        <div>
+          <div class="project-cat">AI DIAGNOSTICS // ARCHITECTURE</div>
+          <h3 class="project-title">BrAI Cognitive Hub</h3>
+          <p class="project-desc">Conversational diagnostics, surgical patches, and isolated sandbox verification for rapid software remediation.</p>
+        </div>
+        <div class="tag-row">
+          <span class="tech-tag">Next.js</span>
+          <span class="tech-tag">LLM Prompts</span>
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">Docker</span>
+        </div>
+      </div>
+
+      <!-- Case 2 -->
+      <div class="project-card">
+        <div>
+          <div class="project-cat">COMPUTER VISION // EDGE AI</div>
+          <h3 class="project-title">FoodLens AI Vision</h3>
+          <p class="project-desc">Real-time computer vision and nutritional intelligence engine delivering instant dietary breakdowns with sub-second inference.</p>
+        </div>
+        <div class="tag-row">
+          <span class="tech-tag">Vision AI</span>
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">Cloudflare</span>
+          <span class="tech-tag">Edge Computing</span>
+        </div>
+      </div>
+
+      <!-- Case 3 -->
+      <div class="project-card">
+        <div>
+          <div class="project-cat">HEALTHCARE TECH // COMPLIANCE</div>
+          <h3 class="project-title">Healytics Healthcare</h3>
+          <p class="project-desc">HIPAA-compliant medical analytics portal with clinical decision support metrics, role-based encryption, and compliance tracing.</p>
+        </div>
+        <div class="tag-row">
+          <span class="tech-tag">Healthcare</span>
+          <span class="tech-tag">Security</span>
+          <span class="tech-tag">PostgreSQL</span>
+          <span class="tech-tag">Audit Logs</span>
+        </div>
+      </div>
+
+      <!-- Case 4 -->
+      <div class="project-card">
+        <div>
+          <div class="project-cat">DIGITAL ARCHIVE // COMMERCE</div>
+          <h3 class="project-title">LithuNative Platform</h3>
+          <p class="project-desc">Cultural digital archive and global e-commerce portal engineered with high-efficiency SEO, Stripe integrations, and micro-interactions.</p>
+        </div>
+        <div class="tag-row">
+          <span class="tech-tag">E-Commerce</span>
+          <span class="tech-tag">Tailwind</span>
+          <span class="tech-tag">Stripe</span>
+          <span class="tech-tag">Micro-UI</span>
+        </div>
+      </div>
+
+      <!-- Case 5 -->
+      <div class="project-card">
+        <div>
+          <div class="project-cat">FINTECH // REAL-TIME DATA</div>
+          <h3 class="project-title">FinTrack Intelligence</h3>
+          <p class="project-desc">Real-time multi-account financial telemetry and automated budget forecasting dashboard with algorithmic alerts.</p>
+        </div>
+        <div class="tag-row">
+          <span class="tech-tag">Financial API</span>
+          <span class="tech-tag">Data Visuals</span>
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">WebSockets</span>
+        </div>
+      </div>
+
+      <!-- Case 6 -->
+      <div class="project-card">
+        <div>
+          <div class="project-cat">AGENT LOOPS // WORKFLOWS</div>
+          <h3 class="project-title">Enterprise Prompt Pipelines</h3>
+          <p class="project-desc">Custom LLM prompt chains, automated evaluation harnesses, and autonomous agent loops for production codebases.</p>
+        </div>
+        <div class="tag-row">
+          <span class="tech-tag">Prompt Eng</span>
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Agentic Loops</span>
+          <span class="tech-tag">Evaluation</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div>&copy; 2026 Allan Indrajith. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="https://itsallan.me" target="_blank">itsallan.me</a>
+        <a href="https://github.com/allanindrajith" target="_blank">GitHub</a>
+        <a href="mailto:hello@itsallan.me">hello@itsallan.me</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Swarm Rebuild Engine: 18 cursor agents, auto-scrolling tour, and live audio synthesis -->
+  <script src="./swarm.js"></script>
+</body>
 </html>
