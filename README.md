@@ -1,5 +1,9 @@
 # Agent Swarm — Interactive Rebuilding Portfolio Template
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://allanindrajith.github.io/agent-swarm/)
+
 An interactive portfolio template where a swarm of 18 simulated collaborative AI cursor agents (`Ada`, `Linus`, `Grace`, `Alan`, `Margaret`, etc.) assemble your website element-by-element with crosshairs, typing carets, pen lines, and alignment guides.
 
 Zero build steps. Zero npm dependencies. Edit standard HTML and ship.
@@ -75,7 +79,17 @@ Want to trigger this animation on your existing live website or app?
 
 ---
 
-## 📜 Credits
+## 🤝 Contributing & Community
 
+Contributions are welcome! Please read:
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** for our development workflow and zero-dependency guidelines.
+- **[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)** for our community standards.
+- **[SECURITY.md](SECURITY.md)** for reporting security concerns.
+
+---
+
+## 📜 Credits & License
+
+- Licensed under the **[MIT License](LICENSE)** © 2026 Allan Indrajith.
 - Inspired by **[Swarm](https://califa.github.io/swarm-site/)** by **Joel Califa** (`@califa`, source: [github.com/califa/swarm-site](https://github.com/califa/swarm-site)).
 - Rebuilder engine adapted from **[Swarm Cursors](https://github.com/DhvanilPatel/swarm-cursors)** by **Dhvanil Patel**.
