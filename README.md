@@ -4,7 +4,7 @@ An interactive portfolio template where a swarm of 18 simulated collaborative AI
 
 Zero build steps. Zero npm dependencies. Edit standard HTML and ship.
 
-![Agent Swarm Rebuild Preview](media/demo.gif)
+![Agent Swarm Rebuild Preview](media/allan-swarm-preview.gif)
 
 🎬 **[Watch Live WebM Video Tour](media/tour-preview.webm)** · **[Live Production Site](https://allanindrajith.github.io/agent-swarm/)**
 
