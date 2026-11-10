@@ -3,6 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://allanindrajith.github.io/agent-swarm/)
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-a3e635?style=flat&logo=buymeacoffee&logoColor=000000)](https://www.buymeacoffee.com/allanidrajith)
 
 An interactive portfolio template where a swarm of 18 simulated collaborative AI cursor agents (`Ada`, `Linus`, `Grace`, `Alan`, `Margaret`, etc.) assemble your website element-by-element with crosshairs, typing carets, pen lines, and alignment guides.
 
